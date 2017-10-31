@@ -119,12 +119,10 @@ return [
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
         Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
-//        Illuminate\Routing\ControllerServiceProvider::class,
         Illuminate\Cookie\CookieServiceProvider::class,
         Illuminate\Database\DatabaseServiceProvider::class,
         Illuminate\Encryption\EncryptionServiceProvider::class,
         Illuminate\Filesystem\FilesystemServiceProvider::class,
-  //      Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
@@ -136,6 +134,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -166,6 +165,7 @@ return [
         'Blade'     => Illuminate\Support\Facades\Blade::class,
         'Bus'       => Illuminate\Support\Facades\Bus::class,
         'Cache'     => Illuminate\Support\Facades\Cache::class,
+        'Cart'      => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Config'    => Illuminate\Support\Facades\Config::class,
         'Cookie'    => Illuminate\Support\Facades\Cookie::class,
         'Crypt'     => Illuminate\Support\Facades\Crypt::class,
