@@ -6,10 +6,15 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
+                @if (Auth::guest())
+                    <div class="panel-body">
+                        Please log in.
+                    </div>
+                @else
+                    <div class="panel-body">
+                        You are logged in!
+                    </div>
+                @endif
             </div>
         </div>
     </div>
