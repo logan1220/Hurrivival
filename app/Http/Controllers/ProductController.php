@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use \DB;
+Use App\Product;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class Products extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class Products extends Controller
      */
     public function index()
     {
-        //
+        return view('product.view_products');
     }
 
     /**
@@ -26,7 +27,8 @@ class Products extends Controller
      */
     public function create()
     {
-        //
+        $categories = DB::table('category')->distinct()->get();
+        return view('product.add',compact('categories'));
     }
 
     /**
@@ -37,7 +39,17 @@ class Products extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'product_name' => 'required|max:255',
+            'product_total_quantity' => 'required',
+            'product_sku' => 'required|max:255',
+            'price' => 'required',
+            'category_id' => 'required|exists:category',
+        ]);
+
+        Product::create($request->all());
+
+        return redirect()->back()->with('message', 'New Product Successfully Created');
     }
 
     /**
