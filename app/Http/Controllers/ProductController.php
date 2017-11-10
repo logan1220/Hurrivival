@@ -61,7 +61,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        $categories = DB::table('category')->distinct()->get();
+
+        return view('product.show', compact('categories'),compact('product', 'product_id'));
     }
 
     /**
