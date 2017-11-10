@@ -17,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('product.view_products');
+        $products = Product::all();
+        return view('product.view_products',compact('products'));
     }
 
     /**
@@ -94,6 +95,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::find($id)->delete();
+
+        return redirect('/product');
     }
 }
