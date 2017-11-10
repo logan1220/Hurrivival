@@ -18,7 +18,7 @@
                                     <div class="col-md-12">
                                         <div class="well row" style="height: 100%">
                                             <div class="col-md-3">
-                                                <img src="http://via.placeholder.com/150x150">
+                                                <img src="http://via.placeholder.com/200x200">
                                             </div>
                                             <div class="col-md-7">
                                                 <h3>{{$product->product_name}}</h3>
@@ -27,15 +27,19 @@
                                                 </ul>
                                             </div>
                                             <div class="col-md-2">
-                                                <form>
-                                                    <input type="submit" class="btn btn-info" value="More Info">
-                                                </form>
-                                                    <br>
-                                                <form>
-                                                    <input type="submit" class="btn btn-success" value="Add to Cart">
-                                                </form>
+                                                <a href="{{ route('product.show', [$product->product_id]) }}">
+                                                    <button class="btn btn-info">More Info</button>
+                                                </a>
+                                                <br><br>
+                                                <a href="{{ route('product.edit', [$product->product_id]) }}">
+                                                    <button class="btn btn-success">Add to Cart</button>
+                                                </a>
                                                 @if(Auth::user()->permissions)
-                                                    <br>
+                                                    <br><br>
+                                                    <a href="{{ route('product.edit', [$product->product_id]) }}">
+                                                        <button class="btn btn-warning">Edit Product</button>
+                                                    </a>
+                                                    <br><br>
                                                     <form action="{{ route('product.destroy', [$product->product_id]) }}"
                                                           method="post">
                                                         <input type="submit" class="btn btn-danger" value="Delete Product">

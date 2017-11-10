@@ -72,7 +72,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $categories = DB::table('category')->distinct()->get();
+
+        return view('product.edit', compact('categories'),compact('product', 'product_id'));
     }
 
     /**
@@ -84,7 +87,16 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'product_name' => 'required|max:255',
+            'product_total_quantity' => 'required',
+            'product_sku' => 'required|max:255',
+            'price' => 'required',
+            'category_id' => 'required|exists:category',
+        ]);
+
+        Product::find($id)->update($request->all());
+        return redirect('/home');
     }
 
     /**
