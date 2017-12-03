@@ -20,3 +20,7 @@ Route::get('auth/login','Auth\AuthController@showLoginForm');
 Route::get('/home', 'ProductController@index');
 
 Route::resource('product','ProductController');
+
+Route::get('/cart','CartController@index');
+
+Route::get('/about','HomeController@about');

@@ -57,12 +57,14 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
+                        <li><a href="{{ url('/about') }}">About Hurrivival</a></li>
                         @if(Auth::user()->permissions)
                             <li><a href="{{ url('/product/create') }}">Add New Product</a></li>
                         @endif
+                        <li><a href="{{ url('/cart') }}"><i class="glyphicon glyphicon-shopping-cart"></i> Your Cart</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="glyphicon glyphicon-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
