@@ -15,8 +15,12 @@ Route::get('/', 'HomeController@index');
 
 Route::auth();
 
-Route::get('auth/login','Auth\AuthController@showLoginForm');
+Route::get('/auth/login','Auth\AuthController@showLoginForm');
 
 Route::get('/home', 'ProductController@index');
 
 Route::resource('product','ProductController');
+
+Route::get('/profile', 'ProfileController@getProfile');
+
+Route::get('/editProfile/{id}', 'ProfileController@editProfile');
