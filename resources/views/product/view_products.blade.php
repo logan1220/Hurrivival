@@ -5,19 +5,24 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
+                    <div class="panel-heading">Products:</div>
                     @if (Auth::guest())
                         <div class="panel-body">
-                            Please log in.
+                            Please log in to view products
                         </div>
                     @else
                         <div class="panel-body">
-                            All Products<br><br>
+                            <div class="row form-group">
+                                <label class="col-form-label col-md-1">Search:</label>
+                                <div class="col-md-10">
+                                    <input name="search" type="text" class="form-control" value="">
+                                </div>
+                            </div>
                             @foreach ($products as $product)
-                                <div class="row">
+                                <div class="row" style="padding:0 15px 0 15px;">
                                     <div class="col-md-12">
                                         <div class="well row" style="height: 100%">
-                                            <div class="col-md-3">
+                                            <div class="col-md-3" style="padding-left: 0;">
                                                 <img src="http://via.placeholder.com/200x200">
                                             </div>
                                             <div class="col-md-7">

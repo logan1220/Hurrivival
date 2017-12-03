@@ -26,4 +26,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * Show the about page
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function about()
+    {
+        return view('about');
+    }
 }

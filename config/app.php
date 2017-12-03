@@ -134,7 +134,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        \Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
