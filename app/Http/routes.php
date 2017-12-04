@@ -23,7 +23,7 @@ Route::resource('product','ProductController');
 
 Route::get('/profile', 'ProfileController@getProfile');
 
-Route::get('/editProfile', 'ProfileController@editProfile');
+Route::resource('editProfile', 'ProfileController', array('only' => array('edit', 'update')));
 
 Route::get('/cart','CartController@index');
 

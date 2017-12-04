@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\User;
+use \DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
@@ -19,12 +21,12 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function editProfile($id)
+    public function edit($id)
     {
         $user = DB::table('users')->find($id);
 	
 
-        return view('profile.edit', compact('user'));
+        return view('editProfile.edit', compact('user'));
     }
 
 /**
@@ -39,7 +41,7 @@ class ProfileController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|max:255',
-            'phone' => 'required|max:13',
+            'phone' => 'required|max:14',
             'address1' => 'required|max:255',
             'city' => 'required|max:255',
 	    'state' => 'required|max:15',

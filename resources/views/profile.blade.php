@@ -6,13 +6,16 @@
 	<table class="table">
 		<td>Your information:</td><td></td>
 		<tr><td>Email: </td><td>{{ Auth::user()->email }}</td>
-		<tr><td>Phone: </td><td>{{ Auth::user()->email }}</td>
-		<tr><td>Address: </td><td>{{ Auth::user()->email }}</td>
-		<tr><td>City: </td><td>{{ Auth::user()->email }}</td>
-		<tr><td>State: </td><td>{{ Auth::user()->email }}</td>
-		<tr><td>Zip Code: </td><td>{{ Auth::user()->id }}</td>
+		<tr><td>Phone: </td><td>{{ Auth::user()->phone }}</td>
+		<tr><td>Address: </td><td>{{ Auth::user()->address1 }}</td>
+		<tr><td>City: </td><td>{{ Auth::user()->city }}</td>
+		<tr><td>State: </td><td>{{ Auth::user()->state }}</td>
+		<tr><td>Zip Code: </td><td>{{ Auth::user()->zip }}</td>
 	</table>
-	<a href="{{ route('editProfile', Auth::user()->id) ">
+	<?php 
+		$user = Auth::user()->id;
+	?>
+	<a href="{{ route('editProfile.edit', [$user]) }}">
         	<button class="btn btn-success">Edit Profile Information</button>
         </a>
     </div>
