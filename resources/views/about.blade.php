@@ -29,6 +29,14 @@
                     community. We are also collecting donations from our customers, and we will donate 10 cents for
                         each dollar collected between now and December 31, 2017.<br> <a>Donate here</a></p>
                 </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img src="/BBB.png" alt="BBB image" style="width: inherit;">
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="/guarantee.png" alt="other image" style="width: inherit;">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

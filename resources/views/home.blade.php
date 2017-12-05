@@ -12,7 +12,7 @@
                     </div>
                 @else
                     <div class="panel-body">
-                        You are logged in!
+                        Welcome to Hurrivival! Start ordering your survival products today and save lives!
                     </div>
                 @endif
             </div>

@@ -34,5 +34,6 @@ class Product extends Model
         'product_sku',
         'price',
         'category_id',
+        'img_url',
     ];
 }

@@ -30,7 +30,7 @@
                                     <div class="col-md-12">
                                         <div class="well row" style="height: 100%">
                                             <div class="col-md-3" style="padding-left: 0;">
-                                                <img src="{{ $product->img_url }}" alt="product image">
+                                                <img src="{{ $product->img_url }}" alt="product image" style="max-width: 200px;">
                                             </div>
                                             <div class="col-md-7">
                                                 <h3>{{$product->product_name}}</h3>
