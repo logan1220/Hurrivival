@@ -4,6 +4,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
+                @if (session()->has('message'))
+                    <div class="row">
+                        <div class="alert alert-success">
+                            <p>{{ session()->get('message') }}</p>
+                        </div>
+                    </div>
+                @endif
                 <div class="panel panel-default">
                     <div class="panel-heading">Your Cart:</div>
                     @if (Auth::guest())
@@ -12,12 +19,9 @@
                         </div>
                     @else
                         <div class="panel-body">
-                            <div class="row form-group">
-                                <label class="col-form-label col-md-1">Search:</label>
-                                <div class="col-md-10">
-                                    <input name="search" type="text" class="form-control" value="">
-                                </div>
-                            </div>
+                            <a href="{{ url('/cart/checkout') }}">
+                                <button class="btn btn-ino">Checkout</button>
+                            </a>
                             @foreach ($cart as $item)
                                 <div class="row" style="padding:0 15px 0 15px;">
                                     <div class="col-md-12">
@@ -29,10 +33,16 @@
                                                 <h3>{{$item->name}}</h3>
                                                 <ul>
                                                     <li>Price: ${{$item->price}}</li>
+                                                    <li>Your Quantity: {{$item->qty}}</li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-2">
-
+                                                <a href="{{ url('/cart/destroy', [$item->rowId]) }}">
+                                                    <button class="btn btn-danger">Remove from Cart</button>
+                                                </a>
+                                                <a href="{{ url('/cart/edit', [$item->rowId]) }}">
+                                                    <button class="btn btn-warning">Edit Quantity</button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

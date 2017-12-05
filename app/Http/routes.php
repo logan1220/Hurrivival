@@ -27,4 +27,16 @@ Route::resource('editProfile', 'ProfileController', array('only' => array('edit'
 
 Route::get('/cart','CartController@index');
 
+Route::get('/cart/add/{product}','CartController@add');
+
+Route::get('/cart/destroy/{rowId}','CartController@destroy');
+
+Route::get('/cart/edit/{rowId}','CartController@edit');
+
+Route::post('/cart/update/{rowId}','CartController@update');
+
+Route::get('/cart/checkout','CartController@checkout');
+
+Route::post('/cart/purchase','CartController@purchase');
+
 Route::get('/about','HomeController@about');

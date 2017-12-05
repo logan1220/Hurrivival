@@ -24,6 +24,7 @@
             margin-right: 6px;
         }
     </style>
+
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
@@ -61,14 +62,14 @@
                         @if(Auth::user()->permissions)
                             <li><a href="{{ url('/product/create') }}">Add New Product</a></li>
                         @endif
-                        <li><a href="{{ url('/cart') }}"><i class="glyphicon glyphicon-shopping-cart"></i> Your Cart</a></li>
+                        <li><a href="{{ url('/cart') }}"><i class="glyphicon glyphicon-shopping-cart"></i>Your Cart ({{Cart::count()}})</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="glyphicon glyphicon-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-				<li><a href="{{ url('/profile') }}">Profile</a></li>
+				                <li><a href="{{ url('/profile') }}">Your Profile</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -84,5 +85,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <script src="/jquery-3.2.1.min.js"></script>
+    <script src="/bootbox.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
+<script>
+    function donation() {
+        bootbox.alert("15% of every purchase is given to the RedCross as a donation at no expense to you! The price you see is what we donate, not you being charged extra.");
+    }
+</script>
 </html>

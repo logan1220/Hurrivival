@@ -4,6 +4,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
+                @if (session()->has('message'))
+                    <div class="row">
+                        <div class="alert alert-success">
+                            <p>{{ session()->get('message') }}</p>
+                        </div>
+                    </div>
+                @endif
                 <div class="panel panel-default">
                     <div class="panel-heading">Products:</div>
                     @if (Auth::guest())
@@ -19,7 +26,7 @@
                                 </div>
                             </div>
                             @foreach ($products as $product)
-                                <div class="row" style="padding:0 15px 0 15px;">
+                                <div class="row" style="padding:0 15px 0 15px;" data-name="{{ $product->product_name }}">
                                     <div class="col-md-12">
                                         <div class="well row" style="height: 100%">
                                             <div class="col-md-3" style="padding-left: 0;">
@@ -29,6 +36,7 @@
                                                 <h3>{{$product->product_name}}</h3>
                                                 <ul>
                                                     <li>Price: ${{$product->price}}</li>
+                                                    <li>Quantity Left Instock: {{$product->product_total_quantity}}</li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-2">
@@ -36,7 +44,7 @@
                                                     <button class="btn btn-info">More Info</button>
                                                 </a>
                                                 <br><br>
-                                                <a href="{{ route('product.edit', [$product->product_id]) }}">
+                                                <a href="{{ url('/cart/add', [$product->product_id]) }}">
                                                     <button class="btn btn-success">Add to Cart</button>
                                                 </a>
                                                 @if(Auth::user()->permissions)
