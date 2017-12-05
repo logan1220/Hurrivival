@@ -88,7 +88,13 @@
                             <br>
                             <div class="row">
                                 <div class="col-md-2">
-                                    <input type="submit" class="btn btn-success" value="Add to Cart">
+                                    @if($product->product_total_quantity <= 0)
+                                        <button class="btn btn-disabled" disabled="">Out of stock</button>
+                                    @else
+                                        <a href="{{ url('/cart/add', [$product->product_id]) }}">
+                                            <button class="btn btn-success">Add to Cart</button>
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
