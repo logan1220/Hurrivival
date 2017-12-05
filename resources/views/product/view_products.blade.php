@@ -22,15 +22,15 @@
                             <div class="row form-group">
                                 <label class="col-form-label col-md-1">Search:</label>
                                 <div class="col-md-10">
-                                    <input name="search" type="text" class="form-control" value="">
+                                    <input name="search" type="text" class="form-control" value="" onkeyup="filterProducts(this)">
                                 </div>
                             </div>
                             @foreach ($products as $product)
-                                <div class="row" style="padding:0 15px 0 15px;" data-name="{{ $product->product_name }}">
+                                <div class="product-row row" style="padding:0 15px 0 15px;" data-name="{{ $product->product_name }}">
                                     <div class="col-md-12">
                                         <div class="well row" style="height: 100%">
                                             <div class="col-md-3" style="padding-left: 0;">
-                                                <img src="http://via.placeholder.com/200x200">
+                                                <img src="{{ $product->img_url }}" alt="product image">
                                             </div>
                                             <div class="col-md-7">
                                                 <h3>{{$product->product_name}}</h3>
@@ -71,4 +71,25 @@
             </div>
         </div>
     </div>
+    <script>
+        function filterProducts(input) {
+            var search = input.value.toLowerCase();
+
+            var productRows = $('.product-row');
+
+            if (search === '') {
+                return productRows.show();
+            }
+
+            productRows.each(function () {
+                var productName = $(this).data('name').toLowerCase();
+
+                if (productName.indexOf(search) === -1) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+        }
+    </script>
 @endsection

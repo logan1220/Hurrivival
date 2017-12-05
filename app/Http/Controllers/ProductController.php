@@ -46,6 +46,7 @@ class ProductController extends Controller
             'product_sku' => 'required|max:255',
             'price' => 'required',
             'category_id' => 'required|exists:category',
+            'img_url' => 'required',
         ]);
 
         Product::create($request->all());
@@ -96,6 +97,7 @@ class ProductController extends Controller
             'product_sku' => 'required|max:255',
             'price' => 'required',
             'category_id' => 'required|exists:category',
+            'img_url' => 'required',
         ]);
 
         Product::find($id)->update($request->all());

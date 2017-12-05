@@ -102,6 +102,17 @@
                         </div>
                         <br>
                         <div class="row">
+                            <div class="col-md-3">
+                                <label for="img_url" class="control-label">Image URL:</label>
+                            </div>
+                            <div class="col-md-6 {{ $errors->has('img_url') ? ' has-error' : '' }}">
+                                <input placeholder="https://loremflickr.com/320/240"
+                                       name="img_url"
+                                       class="form-control input-sm"
+                                       value="{{ old('img_url') }}">
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-2">
                                 <input type="submit" class="btn btn-success" value="Create New Product">
                             </div>
