@@ -47,7 +47,7 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:6',
             'phone' => 'required',
             'address1' => 'required',
-            'address2' => 'required',
+            'address2' => 'max:50',
             'city' => 'required',
             'state' => 'required',
             'zip' => 'required',
@@ -66,12 +66,12 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'phone' => 'required',
-            'address1' => 'required',
-            'address2' => 'max:50',
-            'city' => 'required',
-            'state' => 'required',
-            'zip' => 'required',
+            'phone' => $data['phone'],
+            'address1' => $data['address1'],
+            'address2' => $data['address2'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'zip' => $data['zip'],
         ]);
     }
 }
