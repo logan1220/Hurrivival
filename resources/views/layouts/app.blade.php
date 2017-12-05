@@ -31,7 +31,7 @@
 
 </head>
 <body id="app-layout" style="
-    background-image: url(/hurricane.jpg);
+    background-image: url(hurricane.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;">

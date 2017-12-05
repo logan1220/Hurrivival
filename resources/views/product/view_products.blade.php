@@ -44,9 +44,13 @@
                                                     <button class="btn btn-info">More Info</button>
                                                 </a>
                                                 <br><br>
-                                                <a href="{{ url('/cart/add', [$product->product_id]) }}">
-                                                    <button class="btn btn-success">Add to Cart</button>
-                                                </a>
+                                                @if($product->product_total_quantity <= 0)
+                                                    <button class="btn btn-disabled" disabled="">Out of stock</button>
+                                                @else
+                                                    <a href="{{ url('/cart/add', [$product->product_id]) }}">
+                                                        <button class="btn btn-success">Add to Cart</button>
+                                                    </a>
+                                                @endif
                                                 @if(Auth::user()->permissions)
                                                     <br><br>
                                                     <a href="{{ route('product.edit', [$product->product_id]) }}">

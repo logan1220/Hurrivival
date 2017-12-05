@@ -31,10 +31,10 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-5">
-                        <img src="/BBB.png" alt="BBB image" style="width: inherit;">
+                        <img src="BBB.png" alt="BBB image" style="width: inherit;">
                     </div>
                     <div class="col-sm-6">
-                        <img src="/guarantee.png" alt="other image" style="width: inherit;">
+                        <img src="guarantee.png" alt="other image" style="width: inherit;">
                     </div>
                 </div>
             </div>
